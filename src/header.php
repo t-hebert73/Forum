@@ -16,13 +16,14 @@
     <meta name="author" content="Trevor Hebert">
 
     <!-- Le styles -->
-    <link href="../Bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		background-color:#f1f1f1;
       }
     </style>
-    <link href="../Bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -42,7 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="index.php">The Best Forum</a>
+          <a class="brand" href="index.php">Programming Forum</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="index.php">Home</a></li>

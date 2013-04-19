@@ -7,7 +7,7 @@
  */
 
 //This code connects to the database.
-mysql_connect('localhost','root','root')or die('Unable to connect to database'); 
+mysql_connect('localhost','root','')or die('Unable to connect to database'); 
 mysql_select_db('forum')or die('Unable to select the forum database'); 
 //======================================================================
 

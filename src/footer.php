@@ -2,9 +2,9 @@
  * filename: footer.php
  * last edited: April 16, 2013
  * authors: Trevor Hebert, Miguel Mawyin
- * file description: This file connects to the database
+ * file description: This file contains all of the javascript files that are required.
  *
- * ->
+ * -->
  </div> <!-- /container -->
 
     <!-- Le javascript
