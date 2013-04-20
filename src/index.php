@@ -10,7 +10,7 @@
 include 'connect.php';
 include 'header.php';
 ?>
-	<h1>Welcome to the best programming forum!</h1>
+	<h1>Welcome to the Best Programming Forum!</h1>
 	<p>Hey, want to be cool? Then you should <a href="signup.php">sign up</a> right away.</p>
 	<p>If you are cool, then <a href="signin.php">sign in</a> and start posting.</p>
 

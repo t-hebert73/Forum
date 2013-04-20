@@ -84,12 +84,12 @@ else // Not already logged in
             $sql = "SELECT user_id, user_name, user_level FROM users WHERE user_name = '" . mysql_real_escape_string($_POST['user_name']) . "' AND user_pass = '" . sha1($_POST['user_pass']) . "'";  
             //get the result
             $result = mysql_query($sql);  
-            if(!$result)  //if the query was unsuccessfull
+            if(!$result)  //if the query was unsuccessful
             {  
                 //display the error  
                 echo 'there is an error with the query'; 
             } 
-            else //if the query was successfull
+            else //if the query was successful
             { 
                 
                 if(mysql_num_rows($result) == 0) //if no users were found

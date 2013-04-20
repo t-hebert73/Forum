@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
         
         <div class="control-group">
         	<div class="controls">
-        		<button type="submit" class="btn">Sign up</button> 
+        		<button type="submit" class="btn btn-success">Sign up</button> 
         	</div>  
         </div>
         
@@ -79,7 +79,7 @@ else /*  the form has been posted */
     }  
       
       
-    if(isset($_POST['user_pass']))  //check if the user entered a password
+    if(isset($_POST['user_pass']) && $_POST['user_pass'] != "")   //check if the user entered a password
     {  
         if($_POST['user_pass'] != $_POST['user_pass_check'])  //check that the entered password and retyped password are the same
         {  
@@ -90,6 +90,16 @@ else /*  the form has been posted */
     {  
         $errors[] = 'The password field cannot be empty.';  //add it to error array
     }  
+	
+	if(isset($_POST['user_email']) && $_POST['user_email'] != "") //check if the user entered an email
+	{
+		//$errors[] = 'The email field cannot be empty.'; //add to the error array
+		
+	}
+	else
+	{
+		$errors[] = 'The email field cannot be empty.'; //add to the error array
+	}
       
     if(!empty($errors)) // if the error array isnt empty
     {  
@@ -108,14 +118,14 @@ else /*  the form has been posted */
         $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_level) VALUES('" . mysql_real_escape_string($_POST['user_name']) . "', '" . sha1($_POST['user_pass']) . "', '" . mysql_real_escape_string($_POST['user_email']) . "', NOW(), 0)";  
         // hold the results                  
         $result = mysql_query($sql);  
-        if(!$result)  //if the query was unsuccessfull
+        if(!$result)  //if the query was unsuccessful
         {  
             //display the error  
-            echo 'There is an error adding the user to the database'; 
+            echo 'There is already a user registered with that username or email.'; 
         } 
-        else 
+        else  // the query was successful
         { 
-            echo 'Thank you for registerting!. You can now <a href="signin.php">sign in</a> and start posting! Have fun!'; //success!
+            echo 'Thank you for registering!. You can now <a href="signin.php">sign in</a> and start posting! Have fun!'; //success!
         } 
     } 
 } 
