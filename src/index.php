@@ -10,11 +10,19 @@
 include 'connect.php';
 include 'header.php';
 ?>
-	<h1>Welcome to the Best Programming Forum!</h1>
-	<p>Hey, want to be cool? Then you should <a href="signup.php">sign up</a> right away.</p>
-	<p>If you are cool, then <a href="signin.php">sign in</a> and start posting.</p>
-
+	<h2>Welcome to the Best Programming Forum!</h2>
 	<?php
+		// Check if the user has logged in
+		if(isset($_SESSION['signed_in'])):
+	?>
+		<p>What are you waiting for, start posting!</p>
+		<p>Dont be shy!</p>
+	<?php else: ?>
+		<p>Hey, want to be cool? Then you should <a href="signup.php">sign up</a> right away.</p>
+		<p>If you are cool, then <a href="signin.php">sign in</a> and start posting.</p>
+	<?php
+		endif;
+		
 		// Display the sections currently registered
 		$q_sec = mysql_query("SELECT * FROM section ORDER BY sec_name");
 		while( $r_sec = mysql_fetch_array($q_sec) ):
