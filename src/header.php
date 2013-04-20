@@ -50,11 +50,11 @@
               <li class="active"><a href="index.php">Home</a></li>
 			  <?php
 				//check the session variable to see if already logged in 
-				if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true):
+				if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true): //if the user is signed in show the edit profile and sign out tabs in the nav
 				?>
-				<li><a href="signup.php">Profile</a></li>
+				<li><a href="editProfile.php">Profile</a></li>
 				<li><a href="signout.php">Sign Out</a></li>
-				<?php else: ?>
+				<?php else: ?> <!-- the user isn't signed in so show sign up and sign in tabs in the nav-->
               <li><a href="signup.php">Signup</a></li>
               <li><a href="signin.php">Sign In</a></li>
 				<?php endif; ?>
