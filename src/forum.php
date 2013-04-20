@@ -1,7 +1,7 @@
 <?php
 /*
  * filename: forum.php
- * last edited: April 18, 2013
+ * last edited: April 19, 2013
  * authors: Trevor Hebert, Miguel Mawyin
  * file description: This is the forum page.
  */
@@ -27,12 +27,23 @@ $r = mysql_fetch_array($q);
 	<div class="container section">
 		<div class="row">
 			<div class="span10"><h4>Name</h4></div>
-			<div class="span2"><h4>Threads</h4></div>
+			<div class="span1"><h4>Date</h4></div>
+			<div class="span1"><h4>Replies</h4></div>
 		</div>
-		<div class="row">
-			<div class="span10">test123</div>
-			<div class="span2">234123</div>
-		</div>
+		<?php
+		// Get all of the threads from that topic
+		// TODO : Limit the number of threads.
+		$q = mysql_query("SELECT t.*, COUNT(c.user_id) AS replies FROM thread t LEFT JOIN comment c ON t.thread_id=c.thread_id AND t.topic_id=".$_GET['id']);
+		
+		// Display all of the threads
+		while( $r = mysql_fetch_array($q) ):
+		?>
+			<div class="row">
+				<div class="span10"><?php echo $r['thread_name']; ?></div>
+				<div class="span1"><?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></div>
+				<div class="span1"><?php echo $r['replies']; ?></div>
+			</div>
+		<?php endwhile; ?>
 	</div>
 <?php
 include 'footer.php';// include the footer file
