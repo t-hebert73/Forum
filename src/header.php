@@ -1,11 +1,16 @@
-<!--
+<?php
+/*
  *
  * filename: header.php
  * last edited: April 16, 2013
  * authors: Trevor Hebert, Miguel Mawyin
  * file description: This is the header file. It has the doctype info and nav bar.
  *
--->
+ */
+ 
+ //Start sessions
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,8 +48,16 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="index.php">Home</a></li>
+			  <?php
+				//check the session variable to see if already logged in 
+				if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true):
+				?>
+				<li><a href="signup.php">Profile</a></li>
+				<li><a href="signout.php">Sign Out</a></li>
+				<?php else: ?>
               <li><a href="signup.php">Signup</a></li>
               <li><a href="signin.php">Sign In</a></li>
+				<?php endif; ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

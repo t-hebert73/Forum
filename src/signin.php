@@ -3,7 +3,7 @@
  * filename: signin.php
  * last edited: April 16, 2013
  * authors: Trevor Hebert, Miguel Mawyin
- * file description: This file connects to the database
+ * file description: This file signs the user
  */
   
 //include the connect and header files
@@ -17,7 +17,9 @@ include 'header.php';
 //check the session variable to see if already logged in 
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)  
 {  
-    echo 'You are already signed in, you can <a href="signout.php">sign out</a> if you want.';  
+    // Go to the index
+	header('location:index.php');
+	exit;
 }  
 else // Not already logged in
 {  
@@ -25,7 +27,6 @@ else // Not already logged in
     {  
         /*the form not been posted so display it */  
         ?>
-        
         <form class="form-horizontal" method="post" action="">
 		<div class="control-group">
 			<label class="control-label" for="user_name">Username: </label>
@@ -109,12 +110,12 @@ else // Not already logged in
                     } 
                    	
 					//welcome the user and provide a link to the forum
-                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="forum.php">Proceed to the Forum</a>.'; 
+                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="index.php">Proceed to the Forum</a>.'; 
                 } 
             } 
         } 
     } 
-} 
+}
 //include the footer.
 include 'footer.php';  
 ?>         
