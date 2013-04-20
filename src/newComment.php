@@ -3,7 +3,7 @@
  * filename: newComment.php
  * last edited: April 20, 2013
  * authors: Trevor Hebert, Miguel Mawyin
- * file description: 
+ * file description: Creates a comment within a thread.
  */
  
 //include the connect and header files 
