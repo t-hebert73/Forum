@@ -1,7 +1,7 @@
 <?php
 /*
  * filename: forum.php
- * last edited: April 19, 2013
+ * last edited: April 20, 2013
  * authors: Trevor Hebert, Miguel Mawyin
  * file description: This is the forum page.
  */
@@ -22,7 +22,12 @@ $r = mysql_fetch_array($q);
 ?>
 	<!-- Display the title and description of the topic -->
     <h1><?php echo $r['topic_name']; ?></h1>
-	<p><?php echo $r['topic_desc']; ?></p>
+	<div class="container">
+		<div class="row">
+			<div class="span11"><p><?php echo $r['topic_desc']; ?></p></div>
+			<div class="span1 centered"><a class="btn btn-small" href="newThread.php?id=<?php echo $_GET['id']; ?>"><i class="icon-file"></i>New</a></div>
+		</div>
+	</div>
 	
 	<div class="container section">
 		<div class="row">
@@ -41,7 +46,7 @@ $r = mysql_fetch_array($q);
 			<div class="row">
 				<div class="span10"><a href="thread.php?id=<?php echo $r['thread_id']; ?>"><?php echo $r['thread_name']; ?></a></div>
 				<div class="span1"><?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></div>
-				<div class="span1"><?php echo $r['replies']; ?></div>
+				<div class="span1"><?php echo $r['replies']-1; ?></div>
 			</div>
 		<?php endwhile; ?>
 	</div>
