@@ -1,6 +1,6 @@
 /*
  * filename: forum.css
- * last edited: April 18, 2013
+ * last edited: April 19, 2013
  * authors: Trevor Hebert, Miguel Mawyin
  * file description: This is the main styling file.
  **/
@@ -40,4 +40,8 @@ body{
 
 .section .row{
 	border-bottom:1px solid #eee;
+}
+
+.centered{
+	text-align:center;
 }

@@ -33,13 +33,13 @@ $r = mysql_fetch_array($q);
 		<?php
 		// Get all of the threads from that topic
 		// TODO : Limit the number of threads.
-		$q = mysql_query("SELECT t.*, COUNT(c.user_id) AS replies FROM thread t LEFT JOIN comment c ON t.thread_id=c.thread_id AND t.topic_id=".$_GET['id']);
+		$q = mysql_query("SELECT t.*, COUNT(c.user_id) AS replies FROM thread t, comment c WHERE t.thread_id=c.thread_id AND t.topic_id=".$_GET['id']." GROUP BY t.thread_id");
 		
 		// Display all of the threads
 		while( $r = mysql_fetch_array($q) ):
 		?>
 			<div class="row">
-				<div class="span10"><?php echo $r['thread_name']; ?></div>
+				<div class="span10"><a href="thread.php?id=<?php echo $r['thread_id']; ?>"><?php echo $r['thread_name']; ?></a></div>
 				<div class="span1"><?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></div>
 				<div class="span1"><?php echo $r['replies']; ?></div>
 			</div>
