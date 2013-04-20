@@ -1,7 +1,7 @@
 <?php
 /*
  * filename: thread.php
- * last edited: April 19, 2013
+ * last edited: April 20, 2013
  * authors: Trevor Hebert, Miguel Mawyin
  * file description: Displays a specific thread
  */
@@ -22,7 +22,12 @@ $r = mysql_fetch_array($q);
 ?>
 	<!-- Display the title and description of the topic -->
     <h1><?php echo $r['thread_name']; ?></h1>
-	<p>Submitted: <?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></p>
+	<div class="container">
+		<div class="row">
+			<div class="span10"><p>Submitted: <?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></p></div>
+			<div class="span2 text-right"><a href="newComment.php?id=<?php echo $_GET['id']; ?>" class="btn btn-small"><i class="icon-comment"></i>Comment</a></div>
+		</div>
+	</div>
 	
 	<div class="container section">
 		<div class="row">

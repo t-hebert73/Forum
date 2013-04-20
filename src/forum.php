@@ -25,7 +25,7 @@ $r = mysql_fetch_array($q);
 	<div class="container">
 		<div class="row">
 			<div class="span11"><p><?php echo $r['topic_desc']; ?></p></div>
-			<div class="span1 centered"><a class="btn btn-small" href="newThread.php?id=<?php echo $_GET['id']; ?>"><i class="icon-file"></i>New</a></div>
+			<div class="span1 text-right"><a class="btn btn-small" href="newThread.php?id=<?php echo $_GET['id']; ?>"><i class="icon-file"></i>New</a></div>
 		</div>
 	</div>
 	
