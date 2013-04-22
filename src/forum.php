@@ -24,15 +24,15 @@ $r = mysql_fetch_array($q);
     <h1><?php echo $r['topic_name']; ?></h1>
 	<div class="container">
 		<div class="row">
-			<div class="span11"><p><?php echo $r['topic_desc']; ?></p></div>
+			<div class="span9"><p><?php echo $r['topic_desc']; ?></p></div>
 			<div class="span1 text-right"><a class="btn btn-small" href="newThread.php?id=<?php echo $_GET['id']; ?>"><i class="icon-file"></i>New</a></div>
 		</div>
 	</div>
 	
 	<div class="container section">
 		<div class="row">
-			<div class="span10"><h4>Name</h4></div>
-			<div class="span1"><h4>Date</h4></div>
+			<div class="span8"><h4>Name</h4></div>
+			<div class="span2"><h4>Date</h4></div>
 			<div class="span1"><h4>Replies</h4></div>
 		</div>
 		<?php
@@ -44,8 +44,8 @@ $r = mysql_fetch_array($q);
 		while( $r = mysql_fetch_array($q) ):
 		?>
 			<div class="row">
-				<div class="span10"><a href="thread.php?id=<?php echo $r['thread_id']; ?>"><?php echo $r['thread_name']; ?></a></div>
-				<div class="span1"><?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></div>
+				<div class="span8"><a href="thread.php?id=<?php echo $r['thread_id']; ?>"><?php echo $r['thread_name']; ?></a></div>
+				<div class="span2"><?php echo date('Y/m/d', strtotime($r['thread_date'])); ?></div>
 				<div class="span1"><?php echo $r['replies']-1; ?></div>
 			</div>
 		<?php endwhile; ?>
