@@ -33,7 +33,9 @@ if( isset($_POST['submit']) && isset($_SESSION['signed_in']) ){
 
 // Make sure the user has logged in
 if(!isset($_SESSION['signed_in'])):?>
-	Please login here
+	<div class="section container">
+		<h3>Please signin <a href="signin.php">here</a></h3>
+	</div>
 <?php else: ?>
 	<div class="section container">
 		<h3>New Thread</h3>
