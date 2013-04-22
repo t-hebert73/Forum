@@ -49,6 +49,12 @@
             <ul class="nav">
               <li class="active"><a href="index.php">Home</a></li>
 			  <?php
+				// Check if the user is an admin
+				if(isset($_SESSION['signed_in']) && $_SESSION['user_level'] == 1 ):
+			  ?>
+				<li><a href="admin.php">Admin</a></li>
+			  <?php
+				endif;
 				//check the session variable to see if already logged in 
 				if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true): //if the user is signed in show the edit profile and sign out tabs in the nav
 				?>
