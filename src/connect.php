@@ -7,13 +7,10 @@
  */
 
 //This code connects to the database.
-<<<<<<< HEAD
-mysql_connect('localhost','root','')or die('Unable to connect to database'); 
-mysql_select_db('forum')or die('Unable to select the forum database'); 
-=======
 mysql_connect('webdesign4.georgianc.on.ca','db200177840','10174')or die('Unable to connect to database'); 
 mysql_select_db('db200177840')or die('Unable to select the forum database'); 
->>>>>>> fourth commit
+
+date_default_timezone_set('America/Toronto'); //fixes a stupid php error with timezones
 //======================================================================
 
 ?>
